@@ -3,31 +3,11 @@
 export const locales = {
   en: {
     name: 'English',
-    flag: '🇺🇸',
+    flag: '🇬🇧',
   },
   es: {
-    name: 'Español',
-    flag: '🇪🇸',
-  },
-  fr: {
-    name: 'Français',
-    flag: '🇫🇷',
-  },
-  ja: {
-    name: '日本語',
-    flag: '🇯🇵',
-  },
-  ko: {
-    name: '한국어',
-    flag: '🇰🇷',
-  },
-  ro: {
-    name: 'Română',
-    flag: '🇷🇴',
-  },
-  sv: {
-    name: 'svenska',
-    flag: '🇸🇪',
+    name: 'Slovečina',
+    flag: '🇸🇰',
   },
 } as const satisfies Record<string, { name: string; flag?: string }>
 
