@@ -5,8 +5,8 @@ export const locales = {
     name: 'English',
     flag: '🇬🇧',
   },
-  es: {
-    name: 'Slovečina',
+  sk: {
+    name: 'Slovenčina',
     flag: '🇸🇰',
   },
 } as const satisfies Record<string, { name: string; flag?: string }>
