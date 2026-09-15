@@ -76,6 +76,7 @@ export function buildMetadata(
     ui_locales_supported: [
       //
       'en-US',
+      'sk-SK',
     ],
     display_values_supported: [
       //

@@ -53,5 +53,5 @@ export function detectLocale(userLocales: readonly string[] = []): Locale {
     if (resolved) return resolved
   }
 
-  return 'en'
+  return 'sk'
 }
