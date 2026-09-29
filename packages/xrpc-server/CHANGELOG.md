@@ -1,5 +1,22 @@
 # @atproto/xrpc-server
 
+## 0.13.3
+
+### Patch Changes
+
+- [#5556](https://github.com/bluesky-social/atproto/pull/5556) [`5019f55`](https://github.com/bluesky-social/atproto/commit/5019f5537317ee75ad4527db212bc27c3085fe67) Thanks [@dependabot](https://github.com/apps/dependabot)! - build(deps-dev): bump the dev-dependencies group across 1 directory with 25 updates
+- Updated dependencies [[`5019f55`](https://github.com/bluesky-social/atproto/commit/5019f5537317ee75ad4527db212bc27c3085fe67)]:
+  - @atproto/crypto@0.5.6
+  - @atproto/lexicon@0.7.15
+  - @atproto/common@0.8.4
+  - @atproto/xrpc@0.8.14
+
+## 0.13.2
+
+### Patch Changes
+
+- [#5553](https://github.com/bluesky-social/atproto/pull/5553) [`2480187`](https://github.com/bluesky-social/atproto/commit/2480187c9554ff161227480dd6c0bcaf5e7e3921) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Remove `console.error` debug statement
+
 ## 0.13.1
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @atproto/bsync
 
+## 0.1.1
+
+### Patch Changes
+
+- [#5556](https://github.com/bluesky-social/atproto/pull/5556) [`5019f55`](https://github.com/bluesky-social/atproto/commit/5019f5537317ee75ad4527db212bc27c3085fe67) Thanks [@dependabot](https://github.com/apps/dependabot)! - build(deps-dev): bump the dev-dependencies group across 1 directory with 25 updates
+- Updated dependencies []:
+  - @atproto/common@0.8.4
+
+## 0.1.0
+
+### Minor Changes
+
+- [#5530](https://github.com/bluesky-social/atproto/pull/5530) [`f86aaa6`](https://github.com/bluesky-social/atproto/commit/f86aaa615b4372c1634011337e42247690d77c5a) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Remove the obsolete AddNotifOperation RPC.
+
+### Patch Changes
+
+- [#5524](https://github.com/bluesky-social/atproto/pull/5524) [`3e58d0b`](https://github.com/bluesky-social/atproto/commit/3e58d0bafdb873b86df25ebf2cf941e256dcf697) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Cleanup signal event listeners when the request processing is complete.
+
 ## 0.0.44
 
 ### Patch Changes

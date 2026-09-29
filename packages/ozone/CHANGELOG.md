@@ -1,5 +1,43 @@
 # @atproto/ozone
 
+## 0.5.0
+
+### Minor Changes
+
+- [#5459](https://github.com/bluesky-social/atproto/pull/5459) [`136e214`](https://github.com/bluesky-social/atproto/commit/136e2145b893773a94e9620df37be5215cdb57a3) Thanks [@gcwill70](https://github.com/gcwill70)! - Add an endpoint for creating moderation appeals linked to specific actions.
+
+### Patch Changes
+
+- [#5556](https://github.com/bluesky-social/atproto/pull/5556) [`5019f55`](https://github.com/bluesky-social/atproto/commit/5019f5537317ee75ad4527db212bc27c3085fe67) Thanks [@dependabot](https://github.com/apps/dependabot)! - build(deps-dev): bump the dev-dependencies group across 1 directory with 25 updates
+
+- [#5362](https://github.com/bluesky-social/atproto/pull/5362) [`7a85798`](https://github.com/bluesky-social/atproto/commit/7a857989751ae31518509d69ab7194a922064f3d) Thanks [@gcwill70](https://github.com/gcwill70)! - Add report lifecycle outcome, action breakdown, handling-time, and resolution-time statistics.
+  
+  Keep aggregate totals separate from unassigned-moderator groups, restore moderator inbound counts.
+  
+  Index report closure timestamps for daily statistics and combine null and unmatched queue IDs into a single unqueued group.
+  
+  Reconstruct historical pending counts at the end of each UTC day from report closure and reopen history. Current-day counts remain live; queue breakdowns use current queue membership.
+- Updated dependencies [[`5019f55`](https://github.com/bluesky-social/atproto/commit/5019f5537317ee75ad4527db212bc27c3085fe67)]:
+  - @atproto/crypto@0.5.6
+  - @atproto/identity@0.5.15
+  - @atproto/xrpc-server@0.13.3
+  - @atproto/common@0.8.4
+  - @atproto/lex@0.3.13
+
+## 0.4.3
+
+### Patch Changes
+
+- [#5517](https://github.com/bluesky-social/atproto/pull/5517) [`4dba111`](https://github.com/bluesky-social/atproto/commit/4dba11136a4a04a76dbb678135aacfe944f8d15b) Thanks [@foysalit](https://github.com/foysalit)! - Add a video invalidator for purging transcoded video content after blob takedowns.
+
+- [#5544](https://github.com/bluesky-social/atproto/pull/5544) [`1884e15`](https://github.com/bluesky-social/atproto/commit/1884e1589f3507c4316f46174f151b3eff3c4b63) Thanks [@gcwill70](https://github.com/gcwill70)! - Bound label subscription buffers with cleanup on cancellation and catch-up failures.
+
+- [#5391](https://github.com/bluesky-social/atproto/pull/5391) [`30f8149`](https://github.com/bluesky-social/atproto/commit/30f8149e629f9afc3fe41cf66bd8482954d7c052) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Remove `dotenv` dependency
+- Updated dependencies [[`2480187`](https://github.com/bluesky-social/atproto/commit/2480187c9554ff161227480dd6c0bcaf5e7e3921), [`30f8149`](https://github.com/bluesky-social/atproto/commit/30f8149e629f9afc3fe41cf66bd8482954d7c052)]:
+  - @atproto/xrpc-server@0.13.2
+  - @atproto/identity@0.5.14
+  - @atproto/lex@0.3.12
+
 ## 0.4.2
 
 ### Patch Changes
