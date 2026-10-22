@@ -33,7 +33,9 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
     version: env.version,
     devMode: env.devMode,
     serviceRecordCacheTTL: env.serviceRecordCacheTTL ?? 5 * MINUTE, // default 5 mins
+    labelStreamBackfillRate: env.labelStreamBackfillRate ?? 2000,
     labelQueryWildcardsEnabled: env.labelQueryWildcardsEnabled ?? false,
+    reportTagsDisabled: env.reportTagsDisabled ?? false,
   }
 
   assert(env.dbPostgresUrl, 'dbPostgresUrl is required')
@@ -85,6 +87,9 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
     plcUrl: env.didPlcUrl,
     cacheMaxTTL: env.didCacheMaxTTL ?? DAY,
     cacheStaleTTL: env.didCacheStaleTTL ?? HOUR,
+    cacheMaxEntries: env.didCacheMaxEntries,
+    cacheMaxBytes: env.didCacheMaxBytes,
+    cacheMaxDocBytes: env.didCacheMaxDocBytes,
   }
 
   const blobDivertServiceCfg =
@@ -122,7 +127,13 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
 
   const statsCfg: OzoneConfig['stats'] = {
     computerIntervalMinutes: env.statsComputerIntervalMinutes ?? 15,
+    reporterWindowDays: env.reporterStatsWindowDays ?? 180,
   }
+  assert(
+    Number.isSafeInteger(statsCfg.reporterWindowDays) &&
+      statsCfg.reporterWindowDays > 0,
+    'OZONE_REPORTER_STATS_WINDOW_DAYS must be a positive integer',
+  )
 
   return {
     service: serviceCfg,
@@ -162,6 +173,8 @@ export type OzoneConfig = {
 }
 
 export type StatsConfig = {
+  /** Reporter statistics history in days; defaults to 180. */
+  reporterWindowDays: number
   /**
    * Minutes between stats computer cycles.
    * Defaults to 15. Minimum is 1.
@@ -184,8 +197,12 @@ export type ServiceConfig = {
   version?: string
   devMode?: boolean
   serviceRecordCacheTTL: number // in ms, default 5 mins
+  /** Historical labels per second across subscriptions on one API process. */
+  labelStreamBackfillRate?: number
   /** Allow wildcard label queries; disabled by default. */
   labelQueryWildcardsEnabled?: boolean
+  /** Disable automatic report-reason tags; false by default. */
+  reportTagsDisabled?: boolean
 }
 
 export type BlobDivertConfig = {
@@ -228,6 +245,9 @@ export type IdentityConfig = {
   plcUrl: string
   cacheStaleTTL: number
   cacheMaxTTL: number
+  cacheMaxEntries?: number
+  cacheMaxBytes?: number
+  cacheMaxDocBytes?: number
 }
 
 export type AccessConfig = {

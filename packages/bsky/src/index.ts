@@ -207,6 +207,7 @@ export class BskyAppView {
     const hydrator = new Hydrator(dataplane, config.labelsFromIssuerDids, {
       debugFieldAllowedDids: config.debugFieldAllowedDids,
       featureGatesClient,
+      needsReviewTagSources: [config.modServiceDid],
     })
     const views = new Views({
       imgUriBuilder: imgUriBuilder,
@@ -254,12 +255,16 @@ export class BskyAppView {
     const entrywayJwtPublicKey = config.entrywayJwtPublicKeyHex
       ? createPublicKeyObject(config.entrywayJwtPublicKeyHex)
       : undefined
+    const bffJwtSecret = config.bffJwtSecret
+      ? Buffer.from(config.bffJwtSecret, 'utf8')
+      : undefined
     const authVerifier = new AuthVerifier(dataplane, {
       ownDid: config.serverDid,
       alternateAudienceDids: config.alternateAudienceDids,
       modServiceDid: config.modServiceDid,
       adminPasses: config.adminPasswords,
       entrywayJwtPublicKey,
+      bffJwtSecret,
     })
 
     const blobDispatcher = createBlobDispatcher(config)

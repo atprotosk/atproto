@@ -1,5 +1,187 @@
 # @atproto/bsky
 
+## 0.3.7
+
+### Patch Changes
+
+- [#5708](https://github.com/bluesky-social/atproto/pull/5708) [`0e60f3f`](https://github.com/bluesky-social/atproto/commit/0e60f3f007cbd9812975489f0da19bf7613da831) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Require patched Undici versions for direct dependencies and versioned dispatchers.
+- Updated dependencies [[`0e60f3f`](https://github.com/bluesky-social/atproto/commit/0e60f3f007cbd9812975489f0da19bf7613da831)]:
+  - @atproto-labs/fetch-node@0.4.3
+  - @atproto/identity@0.5.20
+  - @atproto/sync@0.4.17
+  - @atproto/lex@0.4.2
+
+## 0.3.6
+
+### Patch Changes
+
+- [#5698](https://github.com/bluesky-social/atproto/pull/5698) [`400777b`](https://github.com/bluesky-social/atproto/commit/400777b959dce1d81dd639392b1f270dca329f37) Thanks [@foysalit](https://github.com/foysalit)! - Support active moderation tags in needs-review visibility checks alongside labels.
+- Updated dependencies [[`8eac4b0`](https://github.com/bluesky-social/atproto/commit/8eac4b0c0e11170171a1978123078f0a0b17ddd3)]:
+  - @atproto/identity@0.5.19
+  - @atproto/sync@0.4.16
+
+## 0.3.5
+
+### Patch Changes
+
+- [#5700](https://github.com/bluesky-social/atproto/pull/5700) [`53d307b`](https://github.com/bluesky-social/atproto/commit/53d307b614120947d7a11687e9bd0868c1c02dd1) Thanks [@gcwill70](https://github.com/gcwill70)! - Add strict access flag to report queues. Non-admin users will only be able to access strict queues and their reports if they are assigned to them.
+  
+  Allow filtering SafeLink rules by exact source in queryRules, combining with existing filters and pagination.
+- Updated dependencies [[`53d307b`](https://github.com/bluesky-social/atproto/commit/53d307b614120947d7a11687e9bd0868c1c02dd1)]:
+  - @atproto/api@0.29.1
+
+## 0.3.4
+
+### Patch Changes
+
+- Updated dependencies [[`fc60876`](https://github.com/bluesky-social/atproto/commit/fc60876949cca1ca28e98273ecfc97a151d3ebfc)]:
+  - @atproto-labs/fetch-node@0.4.2
+  - @atproto/identity@0.5.18
+  - @atproto/sync@0.4.15
+  - @atproto/lex@0.4.1
+
+## 0.3.3
+
+### Patch Changes
+
+- [#5662](https://github.com/bluesky-social/atproto/pull/5662) [`a2840e2`](https://github.com/bluesky-social/atproto/commit/a2840e277d5ed0d01b97fd4d2427b676e6c90bf2) Thanks [@foysalit](https://github.com/foysalit)! - Expose client-supplied expiry on strike reversals and preserve supplied expiry
+  when executing scheduled takedowns. Strike amounts and expiry policy remain
+  client-controlled.
+
+- [#5693](https://github.com/bluesky-social/atproto/pull/5693) [`1a99766`](https://github.com/bluesky-social/atproto/commit/1a99766791d15cf62e8508cf2b5abc8e9bbb25aa) Thanks [@gcwill70](https://github.com/gcwill70)! - Route reports using reporter and reported-account tags. Record automated notes with the matched tag values.
+- Updated dependencies [[`a2840e2`](https://github.com/bluesky-social/atproto/commit/a2840e277d5ed0d01b97fd4d2427b676e6c90bf2), [`1a99766`](https://github.com/bluesky-social/atproto/commit/1a99766791d15cf62e8508cf2b5abc8e9bbb25aa)]:
+  - @atproto/api@0.29.0
+
+## 0.3.2
+
+### Patch Changes
+
+- [#5688](https://github.com/bluesky-social/atproto/pull/5688) [`8f324e2`](https://github.com/bluesky-social/atproto/commit/8f324e2293f438bd436c4324efb43237dfcbc4fe) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Use saved, validated starter-pack attribution in follow notifications.
+
+- [#5686](https://github.com/bluesky-social/atproto/pull/5686) [`58f14d6`](https://github.com/bluesky-social/atproto/commit/58f14d60273b1ccb7f187b882624c9e2045aed59) Thanks [@gcwill70](https://github.com/gcwill70)! - Add source-aware SafeLink rule synchronization and return rule sources in the API.
+
+- [#5679](https://github.com/bluesky-social/atproto/pull/5679) [`3380a6c`](https://github.com/bluesky-social/atproto/commit/3380a6c2f80b127de8ac13e7202760c9532a1398) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Gate the Atmosphere Explore tab endpoint and return 403 when disabled.
+
+- [#5680](https://github.com/bluesky-social/atproto/pull/5680) [`9f66a7e`](https://github.com/bluesky-social/atproto/commit/9f66a7e54b030700c03eda0bdbf35ffe756f4cd8) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Add a `social.grain.photo` compatibility override that no longer requires `alt`, so the AppView renders Grain gallery photos that omit it. Ozone resolves the override; the PDS keeps validating writes against the published lexicon.
+- Updated dependencies [[`58f14d6`](https://github.com/bluesky-social/atproto/commit/58f14d60273b1ccb7f187b882624c9e2045aed59)]:
+  - @atproto/api@0.28.1
+
+## 0.3.1
+
+### Patch Changes
+
+- [#5677](https://github.com/bluesky-social/atproto/pull/5677) [`9354e5d`](https://github.com/bluesky-social/atproto/commit/9354e5d9b12ebf1add5ebccf36596031992abc1a) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Report external view hydration XRPC endpoint, duration, and root/dependency resolution.
+
+- [#5677](https://github.com/bluesky-social/atproto/pull/5677) [`9354e5d`](https://github.com/bluesky-social/atproto/commit/9354e5d9b12ebf1add5ebccf36596031992abc1a) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Fetch generic external records in requests of at most 100 entries so large dependency passes, such as Atmosphere Explore galleries, no longer exceed the dataplane limit, and report external hydration traversals that recovered from dependency failures with a `partial` outcome.
+
+## 0.3.0
+
+### Minor Changes
+
+- [#5675](https://github.com/bluesky-social/atproto/pull/5675) [`95a4cd5`](https://github.com/bluesky-social/atproto/commit/95a4cd57f958d981d5648e964e9aa584150c47b5) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Update Atmosphere Explore recommendations and curated content selection:
+  
+  - **Breaking:** `app.bsky.unspecced.getAtmosphereExploreTab` returns `articles`, `publications`, `photos`, and `livestreams` as `{ items, recIdStr? }` section objects instead of arrays.
+  - Add the `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations` skeleton lexicon and source articles from Iris behind the `atmosphere_explore:articles:iris:enable` gate, returning the recommendation ID on `articles.recIdStr`. If the Iris request fails or returns a malformed response, fall back to worker-curated articles without a recommendation ID. With the gate off, retain worker-curated articles.
+  - Select curated content by location and request topics, prioritize active featured windows, and cap each curated section at 10 groups before hydrating each group's `canonicalUri`. Every list, including apps, returns at most 10 items, Iris is asked for 10 articles, and each selected list is shuffled with featured items first.
+  - Skip malformed worker banners, content entries, and app cards instead of failing the request, keeping valid items and sections.
+  - Select a single active announcement banner by location, falling back to the untargeted banner with the latest expiration.
+
+### Patch Changes
+
+- [#5611](https://github.com/bluesky-social/atproto/pull/5611) [`5218d17`](https://github.com/bluesky-social/atproto/commit/5218d179dcbf8b6bdb5ecc8120e42d4ed9926ef8) Thanks [@iwsmith](https://github.com/iwsmith)! - Route logged-out `getFeed` requests for allowlisted feeds to Iris behind the new `iris:feed:logged_out:enable` feature gate. Logged-out viewers are bucketed by their stable device id (stable_id) instead of a DID.
+
+- [#5672](https://github.com/bluesky-social/atproto/pull/5672) [`5816c4f`](https://github.com/bluesky-social/atproto/commit/5816c4fefe896422c59f3de9f0602528c64bea82) Thanks [@gcwill70](https://github.com/gcwill70)! - Expose complete lifecycle counts and duration metrics in queue statistics.
+- Updated dependencies [[`95a4cd5`](https://github.com/bluesky-social/atproto/commit/95a4cd57f958d981d5648e964e9aa584150c47b5), [`5816c4f`](https://github.com/bluesky-social/atproto/commit/5816c4fefe896422c59f3de9f0602528c64bea82)]:
+  - @atproto/api@0.28.0
+
+## 0.2.3
+
+### Patch Changes
+
+- [#5591](https://github.com/bluesky-social/atproto/pull/5591) [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Fix the `chat.bsky.authFullChatClient` permission set: it granted the non-existent `chat.bsky.convo.exportAccountData` RPC method instead of `chat.bsky.actor.exportAccountData`.
+
+- [#5591](https://github.com/bluesky-social/atproto/pull/5591) [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Source Lexicons through each package's own `lexicons.json` manifest instead of compiling the repo-root `lexicons` directory directly. Canonical `com.atproto.*` / `tools.ozone.*` schemas are symlinked from the root, `app.bsky.*` / `chat.bsky.*` are fetched from the `bluesky-social/bsky` Github repo, other external namespaces resolve from the network, and locally diverging documents are kept under a tracked `lexicons-overrides` directory. The root `lexicons` directory now only holds the canonical `com.atproto` and `tools.ozone` namespaces. No change to generated output or published API.
+
+- [#5652](https://github.com/bluesky-social/atproto/pull/5652) [`127575e`](https://github.com/bluesky-social/atproto/commit/127575ec56c86c74cce986d2376e4009c3434a55) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Accept BFF authentication tokens on AppView using a configured shared secret and the token subject as the requesting user.
+
+- [#5656](https://github.com/bluesky-social/atproto/pull/5656) [`388dac9`](https://github.com/bluesky-social/atproto/commit/388dac9f7fdfa5ba8e4af08217b4afdc30d993ee) Thanks [@mozzius](https://github.com/mozzius)! - Name the parent of a subscribed post that is a reply in grouped notifications, and return its view in `relatedViews`, as for reply, quote and mention notifications.
+- Updated dependencies [[`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2), [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2), [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2), [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2), [`388dac9`](https://github.com/bluesky-social/atproto/commit/388dac9f7fdfa5ba8e4af08217b4afdc30d993ee), [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2), [`f98b78a`](https://github.com/bluesky-social/atproto/commit/f98b78adbc8963e49823117b007422211f6d3ff2)]:
+  - @atproto/lex@0.4.0
+  - @atproto/api@0.27.1
+  - @atproto/syntax@0.7.7
+  - @atproto/sync@0.4.14
+  - @atproto/xrpc-server@0.13.5
+  - @atproto-labs/fetch-node@0.4.1
+  - @atproto/repo@0.11.1
+  - @atproto-labs/xrpc-utils@0.1.26
+  - @atproto/identity@0.5.17
+  - @atproto/common@0.8.6
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [[`2db2f9d`](https://github.com/bluesky-social/atproto/commit/2db2f9d9cc619906d4cde3284d512c87bf26b9e7)]:
+  - @atproto/api@0.27.0
+
+## 0.2.1
+
+### Patch Changes
+
+- [#5647](https://github.com/bluesky-social/atproto/pull/5647) [`f882504`](https://github.com/bluesky-social/atproto/commit/f88250427e91402d6142bf908074ac6e368c455d) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Support self-labels on profile link records and include them in profile link views.
+
+- [#5647](https://github.com/bluesky-social/atproto/pull/5647) [`f882504`](https://github.com/bluesky-social/atproto/commit/f88250427e91402d6142bf908074ac6e368c455d) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Apply takedown labels to individual profile links and expose labels on profile link views.
+
+- [#5643](https://github.com/bluesky-social/atproto/pull/5643) [`0bac60a`](https://github.com/bluesky-social/atproto/commit/0bac60a9ce84d05253a58b92a90ea12d6249c18c) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Add histograms for raw notification items fetched and returned by grouped notifications.
+  
+  Make notifications V2 raw fetch limits, read count, and related-view item limit configurable.
+- Updated dependencies [[`f882504`](https://github.com/bluesky-social/atproto/commit/f88250427e91402d6142bf908074ac6e368c455d), [`7184ed7`](https://github.com/bluesky-social/atproto/commit/7184ed74423e1d976ceb9e57310d2983c90c2f18), [`f882504`](https://github.com/bluesky-social/atproto/commit/f88250427e91402d6142bf908074ac6e368c455d)]:
+  - @atproto/api@0.26.0
+
+## 0.2.0
+
+### Minor Changes
+
+- [#5615](https://github.com/bluesky-social/atproto/pull/5615) [`a6f5a3c`](https://github.com/bluesky-social/atproto/commit/a6f5a3c7f5e294e96971810d61f23b8f5998a5e2) Thanks [@vineyardbovines](https://github.com/vineyardbovines)! - Hydrate `app.bsky.actor.link` records into `links` on detailed profile views, leaving out taken-down links and links to URL shorteners.
+
+### Patch Changes
+
+- [#5631](https://github.com/bluesky-social/atproto/pull/5631) [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Return basic starter-pack views in grouped notifications, avoiding feed and list-member hydration.
+
+- [#5636](https://github.com/bluesky-social/atproto/pull/5636) [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Add the optional `BSKY_EXTERNAL_RECORDS_SAFE_DOMAINS` comma-separated setting, exposed as `ServerConfig.externalRecordsSafeDomains`, which defaults to an empty list.
+
+- [#5638](https://github.com/bluesky-social/atproto/pull/5638) [`ba08e05`](https://github.com/bluesky-social/atproto/commit/ba08e05d86f7cdb71ea11d2b620ac2d7eec6b532) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Make external view dependency hydration best effort.
+
+- [#5631](https://github.com/bluesky-social/atproto/pull/5631) [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Limit known-follower hydration in grouped notifications to the first ten actors per follow group.
+
+- [#5635](https://github.com/bluesky-social/atproto/pull/5635) [`cffb239`](https://github.com/bluesky-social/atproto/commit/cffb239f483be851f3eb0e09243d4739f5bc9cd0) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Replace custom hydration in `getAtmosphereExploreTab` with generic external-view hydration, using the first URI in each worker group as its canonical root and discovering dependencies automatically.
+
+- [#5636](https://github.com/bluesky-social/atproto/pull/5636) [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Organize external hydration helpers and their specific types below the hydrator class without changing behavior.
+
+- [#5614](https://github.com/bluesky-social/atproto/pull/5614) [`976ebfb`](https://github.com/bluesky-social/atproto/commit/976ebfb1f1c0feea00d12e3eedbcaca2a690a030) Thanks [@foysalit](https://github.com/foysalit)! - Allow the trusted moderation service to bypass actor and list blocks when fetching author feeds.
+
+- [#5635](https://github.com/bluesky-social/atproto/pull/5635) [`cffb239`](https://github.com/bluesky-social/atproto/commit/cffb239f483be851f3eb0e09243d4739f5bc9cd0) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Refactor external record hydration into a shared, bounded pipeline for latest-URI and exact-ref lookups, including dependency discovery, moderation, deduplication, and traversal metrics for Standard Site, Grain, and Streamplace records.
+
+- [#5636](https://github.com/bluesky-social/atproto/pull/5636) [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Add standalone Standard.site record selection/validation and safe-domain URL matching utilities for external embeds.
+
+- [#5638](https://github.com/bluesky-social/atproto/pull/5638) [`ba08e05`](https://github.com/bluesky-social/atproto/commit/ba08e05d86f7cdb71ea11d2b620ac2d7eec6b532) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Remove legacy Standard.site external-view hydration.
+
+- [#5636](https://github.com/bluesky-social/atproto/pull/5636) [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Make `app.bsky.embed.getEmbedExternalView` resolve a single canonical record (from `canonicalUri`, or normalized from the legacy `uris` input, which is now optional), validate it against the requested URL before building views, return generic `data` alongside the Standard.site-only legacy `view`, and report records that fail validation in `unverifiedAssociatedRefs`/`unverifiedAssociatedRecords`.
+
+- [#5633](https://github.com/bluesky-social/atproto/pull/5633) [`dbb0bb5`](https://github.com/bluesky-social/atproto/commit/dbb0bb54a6228021b4169a82a3e8dbe38b42fd4c) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Extend grouped notification spotlighting to reposts and via-repost interactions, with up to three spotlights per page.
+
+- [#5631](https://github.com/bluesky-social/atproto/pull/5631) [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Run profile hydration through a shared worker and let callers request activity-subscription state alongside profile data.
+
+- [#5638](https://github.com/bluesky-social/atproto/pull/5638) [`ba08e05`](https://github.com/bluesky-social/atproto/commit/ba08e05d86f7cdb71ea11d2b620ac2d7eec6b532) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Delete unused legacy Standard.site URI hydration helpers.
+
+- [#5631](https://github.com/bluesky-social/atproto/pull/5631) [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Hydrate profiles and subscription settings in listActivitySubscriptions without fetching unused known followers, profile counts, or joined-via starter packs.
+
+- [#5636](https://github.com/bluesky-social/atproto/pull/5636) [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9) Thanks [@estrattonbailey](https://github.com/estrattonbailey)! - Keep persisted `getEmbedExternalView` associations slim: always return the canonical record, plus only an opted-in set of dependency collections (a Standard.site document's publication, a Grain gallery's items and photos). Recommendation, subscription and favorite records still back rendered previews but are no longer returned for persistence.
+
+- [#5631](https://github.com/bluesky-social/atproto/pull/5631) [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d) Thanks [@rafaeleyng](https://github.com/rafaeleyng)! - Return basic profiles with known followers in grouped notification related views, avoiding detailed-profile and activity-subscription hydration.
+- Updated dependencies [[`d70b673`](https://github.com/bluesky-social/atproto/commit/d70b673be6bce3b6f4d7478254e359913a101c18), [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d), [`5e0e11d`](https://github.com/bluesky-social/atproto/commit/5e0e11db6d42758e4fb763bcbfb6d2affdf7b2e9), [`dbb0bb5`](https://github.com/bluesky-social/atproto/commit/dbb0bb54a6228021b4169a82a3e8dbe38b42fd4c), [`647cb41`](https://github.com/bluesky-social/atproto/commit/647cb412576f1ba92c63aa00c71743cb400bdf8d)]:
+  - @atproto/api@0.25.0
+
 ## 0.1.7
 
 ### Patch Changes
