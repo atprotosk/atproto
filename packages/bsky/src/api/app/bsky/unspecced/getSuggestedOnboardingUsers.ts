@@ -31,6 +31,7 @@ export default function (server: Server, ctx: AppContext) {
       const viewer = auth.credentials.iss
       const labelers = ctx.reqLabelers(req)
       const hydrateCtx = await ctx.hydrator.createContext({
+        xrpcEndpoint: app.bsky.unspecced.getSuggestedOnboardingUsers.$lxm,
         labelers,
         viewer,
         features: ctx.featureGatesClient.scope(
@@ -138,7 +139,6 @@ const presentation = (
 type Context = {
   hydrator: Hydrator
   views: Views
-  topicsClient: Client | undefined
   suggestionsClient: Client | undefined
   irisClient: Client | undefined
 }

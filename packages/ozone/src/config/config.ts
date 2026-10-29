@@ -5,6 +5,7 @@ import {
   type DidString,
   type UriString,
   isDatetimeString,
+  isDidString,
   toDatetimeString,
 } from '@atproto/lex'
 import type { OzoneEnvironment } from './env.js'
@@ -92,11 +93,22 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
     cacheMaxDocBytes: env.didCacheMaxDocBytes,
   }
 
+  const blobDivertMaxBytes = env.blobDivertMaxBytes
+    ? Number(env.blobDivertMaxBytes)
+    : 300 * 1024 * 1024
+  assert(
+    (env.blobDivertMaxBytes === undefined ||
+      /^\d+$/.test(env.blobDivertMaxBytes)) &&
+      Number.isSafeInteger(blobDivertMaxBytes) &&
+      blobDivertMaxBytes > 0,
+    'OZONE_BLOB_DIVERT_MAX_BYTES must be a positive integer',
+  )
   const blobDivertServiceCfg =
     env.blobDivertUrl && env.blobDivertAdminPassword
       ? {
           url: env.blobDivertUrl,
           adminPassword: env.blobDivertAdminPassword,
+          maxBytes: blobDivertMaxBytes,
         }
       : null
   const accessCfg: OzoneConfig['access'] = {
@@ -118,6 +130,23 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
     queueDurationMs: env.assignmentQueueDurationMs ?? 5 * MINUTE,
     reportDurationMs: env.assignmentReportDurationMs ?? 5 * MINUTE,
   }
+
+  const excludedDids = (env.onlineMembersExcludedDids ?? []).map((did) =>
+    did.trim(),
+  )
+  assert(
+    excludedDids.every(isDidString),
+    'OZONE_ONLINE_MEMBERS_EXCLUDED_DIDS must be a comma-separated list of DIDs',
+  )
+  const onlineMembersCfg: OzoneConfig['onlineMembers'] = {
+    excludedDids: [...new Set(excludedDids)],
+    activeWindowMs: env.onlineMembersActiveWindowMs ?? 5 * MINUTE,
+  }
+  assert(
+    Number.isSafeInteger(onlineMembersCfg.activeWindowMs) &&
+      onlineMembersCfg.activeWindowMs > 0,
+    'OZONE_ONLINE_MEMBERS_ACTIVE_WINDOW_MS must be a positive integer',
+  )
 
   const inboxCfg: OzoneConfig['inbox'] = {
     appealWindowMonths: env.inboxAppealWindowMonths ?? 6,
@@ -147,6 +176,7 @@ export const envToCfg = (env: OzoneEnvironment): OzoneConfig => {
     access: accessCfg,
     verifier: verifierCfg,
     assignments: assignmentsCfg,
+    onlineMembers: onlineMembersCfg,
     inbox: inboxCfg,
     strikeSuspension: parseStrikeSuspensionConfig(env.strikeSuspensionConfig),
     stats: statsCfg,
@@ -165,11 +195,17 @@ export type OzoneConfig = {
   blobDivert: BlobDivertConfig | null
   access: AccessConfig
   assignments: AssignmentsConfig
+  onlineMembers: OnlineMembersConfig
   strikeSuspension: StrikeSuspensionConfig
   inbox: InboxConfig
   stats: StatsConfig
   jetstreamUrl?: string
   verifier: VerifierConfig | null
+}
+
+export type OnlineMembersConfig = {
+  excludedDids: DidString[]
+  activeWindowMs: number
 }
 
 export type StatsConfig = {
@@ -208,6 +244,7 @@ export type ServiceConfig = {
 export type BlobDivertConfig = {
   url: UriString
   adminPassword: string
+  maxBytes: number
 }
 
 export type DatabaseConfig = {

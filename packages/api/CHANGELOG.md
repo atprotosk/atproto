@@ -1,5 +1,17 @@
 # @atproto/api
 
+## 0.29.6
+
+### Patch Changes
+
+- [#5756](https://github.com/bluesky-social/atproto/pull/5756) [`54f54ea`](https://github.com/bluesky-social/atproto/commit/54f54ea831f37fe9f722844177f7e1bed8ae8bdc) Thanks [@gcwill70](https://github.com/gcwill70)! - Protect assigned and escalated reports from broad moderation-event and batch report closure, including owned subjects.
+
+## 0.29.5
+
+### Patch Changes
+
+- [#5741](https://github.com/bluesky-social/atproto/pull/5741) [`33c23e0`](https://github.com/bluesky-social/atproto/commit/33c23e0e8aefd43c974851707ae071f9cd1e7322) Thanks [@gcwill70](https://github.com/gcwill70)! - Add a team endpoint listing recently active members.
+
 ## 0.29.4
 
 ### Patch Changes

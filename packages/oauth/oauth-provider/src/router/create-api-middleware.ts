@@ -693,29 +693,36 @@ export function createApiMiddleware<
 
             const client = await server.clientManager.getClient(clientId)
 
-            const code = await server.requestManager.setAuthorized(
-              this.requestUri,
-              client,
-              account,
-              this.deviceId,
-              this.deviceMetadata,
-              this.input.scope,
-            )
+            const { code, parameters } =
+              await server.requestManager.setAuthorized(
+                this.requestUri,
+                client,
+                account,
+                this.deviceId,
+                this.deviceMetadata,
+                this.input.scope,
+              )
 
+            // If the user approved new scopes, update the authorized client
+            // accordingly
             const clientData = authorizedClients.get(clientId)
-            if (server.checkConsentRequired(parameters, clientData)) {
-              const scopes = new Set(clientData?.authorizedScopes)
-
-              // Add the newly accepted scopes to the authorized scopes
-
-              // @NOTE `oauthScopeSchema` ensures that `scope` contains no
-              // leading/trailing/duplicate spaces.
-              for (const s of parameters.scope?.split(' ') ?? []) scopes.add(s)
-
-              await server.accountManager.setAuthorizedClient(account, client, {
-                ...clientData,
-                authorizedScopes: [...scopes],
-              })
+            const oldAuthorizedScopes = new Set(clientData?.authorizedScopes)
+            const newAuthorizedScopes = oldAuthorizedScopes.union(
+              new Set(parameters.scope?.split(' ') ?? []),
+            )
+            if (
+              clientData == null ||
+              newAuthorizedScopes.size !== oldAuthorizedScopes.size
+            ) {
+              await server.accountManager
+                .setAuthorizedClient(account, client, {
+                  ...clientData,
+                  authorizedScopes: [...newAuthorizedScopes],
+                })
+                .catch((err) => {
+                  // Errors are non-critical
+                  onError?.(req, res, err, 'Failed to set authorized client')
+                })
             }
 
             const url = buildRedirectUrl(server.issuer, parameters, { code })

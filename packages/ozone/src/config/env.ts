@@ -2,6 +2,9 @@ import { envBool, envInt, envList, envStr } from '@atproto/common'
 import type { DidString, UriString } from '@atproto/lex'
 
 export const readEnv = (): OzoneEnvironment => {
+  const onlineMembersActiveWindowMs = envStr(
+    'OZONE_ONLINE_MEMBERS_ACTIVE_WINDOW_MS',
+  )
   return {
     nodeEnv: envStr('NODE_ENV'),
     devMode: envBool('OZONE_DEV_MODE'),
@@ -46,11 +49,17 @@ export const readEnv = (): OzoneEnvironment => {
     adminDids: envList('OZONE_ADMIN_DIDS') as DidString[],
     moderatorDids: envList('OZONE_MODERATOR_DIDS') as DidString[],
     triageDids: envList('OZONE_TRIAGE_DIDS') as DidString[],
+    onlineMembersExcludedDids: envList('OZONE_ONLINE_MEMBERS_EXCLUDED_DIDS'),
+    onlineMembersActiveWindowMs:
+      onlineMembersActiveWindowMs === undefined
+        ? undefined
+        : Number(onlineMembersActiveWindowMs),
     adminPassword: envStr('OZONE_ADMIN_PASSWORD'),
     signingKeyHex: envStr('OZONE_SIGNING_KEY_HEX'),
     pdsHeaders: envList('OZONE_PDS_HEADERS'),
     blobDivertUrl: envStr('OZONE_BLOB_DIVERT_URL') as UriString,
     blobDivertAdminPassword: envStr('OZONE_BLOB_DIVERT_ADMIN_PASSWORD'),
+    blobDivertMaxBytes: envStr('OZONE_BLOB_DIVERT_MAX_BYTES'),
     verifierUrl: envStr('OZONE_VERIFIER_URL') as UriString,
     verifierDid: envStr('OZONE_VERIFIER_DID') as DidString,
     verifierPassword: envStr('OZONE_VERIFIER_PASSWORD'),
@@ -111,11 +120,14 @@ export type OzoneEnvironment = {
   adminDids: DidString[]
   moderatorDids: DidString[]
   triageDids: DidString[]
+  onlineMembersExcludedDids?: string[]
+  onlineMembersActiveWindowMs?: number
   adminPassword?: string
   signingKeyHex?: string
   pdsHeaders?: string[]
   blobDivertUrl?: UriString
   blobDivertAdminPassword?: string
+  blobDivertMaxBytes?: string
   verifierUrl?: UriString
   verifierDid?: DidString
   verifierPassword?: string
