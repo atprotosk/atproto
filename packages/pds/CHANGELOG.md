@@ -1,5 +1,64 @@
 # @atproto/pds
 
+## 0.5.55
+
+### Patch Changes
+
+- [#5817](https://github.com/bluesky-social/atproto/pull/5817) [`d4f2c91`](https://github.com/bluesky-social/atproto/commit/d4f2c919697d37af8f411f724e12b8ce2b88f922) Thanks [@foysalit](https://github.com/foysalit)! - Support linking report closures to existing moderation events and targeting all subjects owned by an account from a moderation event.
+- Updated dependencies [[`32c4f74`](https://github.com/bluesky-social/atproto/commit/32c4f7401b5ffd402790ccdbea60f0f12f06adfd), [`8c841f6`](https://github.com/bluesky-social/atproto/commit/8c841f6e73c8365c2dfe816c0613aa9c50490361), [`8c841f6`](https://github.com/bluesky-social/atproto/commit/8c841f6e73c8365c2dfe816c0613aa9c50490361), [`8c841f6`](https://github.com/bluesky-social/atproto/commit/8c841f6e73c8365c2dfe816c0613aa9c50490361), [`8c841f6`](https://github.com/bluesky-social/atproto/commit/8c841f6e73c8365c2dfe816c0613aa9c50490361)]:
+  - @atproto-labs/xrpc-utils@0.1.30
+  - @atproto/lex-data@0.1.10
+  - @atproto/lex-cbor@0.1.9
+  - @atproto/lex-schema@0.2.11
+  - @atproto/common@0.8.9
+  - @atproto/lex-client@0.4.2
+  - @atproto/lex-document@0.1.16
+  - @atproto/lex-json@0.1.9
+  - @atproto/repo@0.11.4
+  - @atproto/xrpc-server@0.13.9
+  - @atproto/aws@0.3.23
+  - @atproto/oauth-provider@0.25.5
+  - @atproto/identity@0.5.23
+
+## 0.5.54
+
+### Patch Changes
+
+- [#5799](https://github.com/bluesky-social/atproto/pull/5799) [`9537a65`](https://github.com/bluesky-social/atproto/commit/9537a659a9d85bbeef1bb423fcb4be9d2e618ff2) Thanks [@dholms](https://github.com/dholms)! - Add the `com.atproto.label.record` lexicon
+
+- [#5813](https://github.com/bluesky-social/atproto/pull/5813) [`43b0be2`](https://github.com/bluesky-social/atproto/commit/43b0be2fa15e49479c11254101a056e9da137c84) Thanks [@foysalit](https://github.com/foysalit)! - Expose account enforcement and best-effort profile information in the moderation inbox.
+- Updated dependencies []:
+  - @atproto-labs/fetch-node@0.4.5
+  - @atproto/oauth-provider@0.25.4
+  - @atproto/identity@0.5.22
+
+## 0.5.53
+
+### Patch Changes
+
+- [#4748](https://github.com/bluesky-social/atproto/pull/4748) [`ee68c93`](https://github.com/bluesky-social/atproto/commit/ee68c9389ebec337d6af37fe373cfb506184040e) Thanks [@fatfingers23](https://github.com/fatfingers23)! - Rate limit `com.atproto.repo.uploadBlob` by the authenticated DID instead of by the uploader's IP address.
+
+- [#5782](https://github.com/bluesky-social/atproto/pull/5782) [`7aa8e7e`](https://github.com/bluesky-social/atproto/commit/7aa8e7e9e1422f053447879def4d4cf92a05adbb) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Match TypeScript project references to workspace dependencies
+
+- [#5788](https://github.com/bluesky-social/atproto/pull/5788) [`34dbe24`](https://github.com/bluesky-social/atproto/commit/34dbe242ce104b824e195862f97c6a250b444d18) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Embed `.hbs` sources in mailer template source maps
+
+- [#5786](https://github.com/bluesky-social/atproto/pull/5786) [`07c25d4`](https://github.com/bluesky-social/atproto/commit/07c25d410d4f4ad8f6ec80fc14efa0dd8ec55545) Thanks [@matthieusieben](https://github.com/matthieusieben)! - Depend on the `@atproto/lex-*` packages that `@atproto/lex` re-exports instead of `@atproto/lex`, which also installs the lexicon codegen tooling
+- Updated dependencies [[`07c25d4`](https://github.com/bluesky-social/atproto/commit/07c25d410d4f4ad8f6ec80fc14efa0dd8ec55545), [`7aa8e7e`](https://github.com/bluesky-social/atproto/commit/7aa8e7e9e1422f053447879def4d4cf92a05adbb), [`07c25d4`](https://github.com/bluesky-social/atproto/commit/07c25d410d4f4ad8f6ec80fc14efa0dd8ec55545), [`07c25d4`](https://github.com/bluesky-social/atproto/commit/07c25d410d4f4ad8f6ec80fc14efa0dd8ec55545), [`7aa8e7e`](https://github.com/bluesky-social/atproto/commit/7aa8e7e9e1422f053447879def4d4cf92a05adbb), [`07c25d4`](https://github.com/bluesky-social/atproto/commit/07c25d410d4f4ad8f6ec80fc14efa0dd8ec55545)]:
+  - @atproto/lex-document@0.1.15
+  - @atproto-labs/xrpc-utils@0.1.29
+  - @atproto/lex-cbor@0.1.8
+  - @atproto/lex-client@0.4.1
+  - @atproto/lex-data@0.1.9
+  - @atproto/lex-json@0.1.8
+  - @atproto/lex-schema@0.2.10
+  - @atproto/oauth-provider@0.25.3
+  - @atproto/xrpc-server@0.13.8
+  - @atproto-labs/fetch-node@0.4.4
+  - @atproto/common@0.8.8
+  - @atproto/repo@0.11.3
+  - @atproto/identity@0.5.21
+  - @atproto/aws@0.3.22
+
 ## 0.5.52
 
 ### Patch Changes
