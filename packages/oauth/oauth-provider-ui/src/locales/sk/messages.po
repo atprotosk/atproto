@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-27 14:03+0100\n"
-"PO-Revision-Date: 2026-10-29 17:57+0100\n"
+"PO-Revision-Date: 2026-10-29 20:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -1034,7 +1034,7 @@ msgstr "Zapamätať si ma na tomto zariadení"
 
 #: src/components/utils/scope-description.tsx
 msgid "Repository"
-msgstr "Ú"
+msgstr "Repozitár"
 
 #: src/components/enable-email-auth-factor-dialog.tsx
 msgid "Require an email code to sign in to your account."
